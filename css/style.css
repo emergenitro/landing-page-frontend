@@ -1,80 +1,178 @@
 /* Variables */
-:root{
-    --primary-color: #121212;
-    --secondary-color: #222222;
-    --font-color: #f2f2f2;
+:root {
+	--primary-color: #121212;
+	--secondary-color: #222222;
+	--font-color: #f2f2f2;
 }
 
 /* Basic Styling */
-* { 
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
-body { 
-    min-height: 100vh; 
-    color: var(--font-color);
-    font-family: 'Poppins', sans-serif;
+body {
+	min-height: 100vh;
+	color: var(--font-color);
+	font-family: 'Poppins', sans-serif;
 }
 
 a {
-    text-decoration: none;
-    color: rgba(215, 215, 215, 0.9);
-    transition: all 0.5s;
+	text-decoration: none;
+	color: rgba(215, 215, 215, 0.9);
+	transition: all 0.5s;
 }
 
-a:hover{
-    color: rgba(255, 255, 255, 1);
-    transition: all 0.5s;
+a:hover {
+	color: rgba(255, 255, 255, 1);
+	transition: all 0.5s;
 }
 
 
 
 /* CSS Styling*/
 .main-header {
-    height: 80vh;
-    width: 100%;
-    border-bottom-left-radius: 300px;
+	height: 80vh;
+	width: 100%;
+	border-bottom-left-radius: 300px;
 }
 
 .grad {
-    background-image: linear-gradient(200deg, var(--primary-color), var(--secondary-color));
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+	background-image: linear-gradient(200deg, var(--primary-color), var(--secondary-color));
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
 }
 
 /* Navbar */
 .navbar {
-    padding: 20px 40px 20px 40px;
-    display: flex;
-    justify-content: space-between;
-    border-bottom: rgba(242, 242, 242, 0.1) 1px solid;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 14px;
-    flex-wrap: nowrap;
+	padding: 20px 40px 20px 40px;
+	display: flex;
+	justify-content: space-between;
+	border-bottom: rgba(242, 242, 242, 0.1) 1px solid;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 14px;
+	flex-wrap: nowrap;
 }
 
 .logo {
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    font-weight: 700;
-    font-size: 18px;
+	letter-spacing: 4px;
+	text-transform: uppercase;
+	font-weight: 700;
+	font-size: 18px;
 }
 
 .right {
-    display: flex;
-    width: 40%;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-wrap: nowrap;
+	display: flex;
+	width: 40%;
+	justify-content: space-evenly;
+	align-items: center;
+	flex-wrap: nowrap;
 }
 
+input, .cross {
+	display: none;
+}
+
+label {
+	display: block;
+	cursor: pointer;
+}
+
+path {
+	fill: none;
+	stroke: #ffffff;
+	stroke-width: 3;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	--length: 24;
+	--offset: -38;
+	stroke-dasharray: var(--length) var(--total-length);
+	stroke-dashoffset: var(--offset);
+	transition: all .5s cubic-bezier(.645, .045, .355, 1);
+}
+
+circle {
+	fill: #fff3;
+	opacity: 0;
+}
+
+.cross input:checked+svg .line--1,
+.cross input:checked+svg .line--3 {
+	--length: 22.627416998;
+}
+
+.cross input:checked+svg .line--2 {
+	--length: 0;
+}
+
+.menu--2 .line--1,
+.menu--2 .line--3 {
+	--total-length: 111.22813415527344;
+	--offset: -50.22813415527344;
+}
+
+.menu--2 .line--2 {
+	--total-length: 99;
+}
+
+.menu--2 input:checked+svg path {
+	transform: translateX(30px);
+}
+
+.menu--2 input:checked+svg .line--1,
+.menu--2 input:checked+svg .line--3 {
+	--offset: -16.9705627485;
+}
+
+.menu--2 input:checked+svg .line--2 {
+	--offset: -20;
+}
+
+/* Navbar phone */
+@media screen and (max-width: 1024px) {
+	.left {
+		display: flex;
+		width: 100%;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.right {
+		display: flex;
+		flex-wrap: wrap;
+		max-height: 0px;
+		overflow: hidden;
+		width: 100%;
+		transition: all 0.5s;
+	}
+
+	.open {
+		max-height: 200px;
+		transition: all 0.5s;
+		width: 100%;
+	}
+
+	.cross {
+		display: block;
+	}
+
+	.navbar a:not(.logo) {
+		width: 100% !important;
+		margin-bottom: 30px;
+	}
+	.navbar {
+		flex-wrap: wrap;
+	}
+	.opennav {
+		padding: 20px 40px 0 40px;
+	}
+}
 
 /* For smaller screens */
 @media screen and (max-width: 1024px) {
-    .main-header{
-        border-bottom-left-radius: 0;
-    }
+	.main-header {
+		border-bottom-left-radius: 0;
+	}
 }
