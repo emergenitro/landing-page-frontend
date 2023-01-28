@@ -1,6 +1,6 @@
 # Custom-coded frontend landing page design for use
 ## Overview
-Hello! I am Karthik Sankar, currently in High School. I'm working on this landing page becuase
+Hello! I am Karthik Sankar, currently in High School. I'm working on this landing page.
 
 
 ## License
